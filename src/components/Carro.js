@@ -20,23 +20,30 @@ const styles = {
 
 class Carro extends Component {
     render() {
-        const { carro, esCarroVisible, mostrarCarro } = this.props;
-        const cantidad = carro.reduce((acc, el) => acc + el.cantidad, 0);
+        const { carro = [], esCarroVisible, mostrarCarro } = this.props; // Default value for carro
+        const cantidad = carro.length > 0 
+            ? carro.reduce((acc, el) => acc + (el.cantidad || 0), 0) 
+            : 0; // Fallback to avoid undefined reduce error
+
         return (
             <div>
                 <span style={styles.bubble}>
-                    {cantidad !== 0
-                        ? <BubbleAlert value={cantidad} />
-                        : null}
+                    {cantidad > 0 && <BubbleAlert value={cantidad} />}
                 </span>
                 <button onClick={mostrarCarro} style={styles.carro}>
                     Carro
                 </button>
-                {esCarroVisible ?
-                    <DetallesCarro carro={carro} />
-                : null}
+                {esCarroVisible && (
+                    <DetallesCarro carro={carro.map(item => ({
+                        ...item,
+                        nombre: item.nombre, // Mostrar claves correctas
+                        precio: item.precio,
+                        cantidad: item.cantidad,
+                      }))}
+                    />
+                )}
             </div>
-        )
+        );
     }
 }
 

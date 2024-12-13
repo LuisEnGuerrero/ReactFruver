@@ -1,22 +1,32 @@
 import { Component } from 'react';
-
-const styles = {
-    button: {
-        backgroundColor: '#0A253E',
-        color: '#FFFFFF',
-        padding: '15px 20px',
-        border: 'none',
-        borderRadius: '5px',
-        cursor: 'pointer',
-    }
-}
+import './Producto.css'; // Importa el archivo CSS
 
 class Button extends Component {
+    createRipple = (event) => {
+        const button = event.currentTarget;
+        const circle = document.createElement("span");
+        const diameter = Math.max(button.clientWidth, button.clientHeight);
+        const radius = diameter / 2;
+
+        circle.style.width = circle.style.height = `${diameter}px`;
+        circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+        circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+        circle.classList.add("ripple");
+
+        const ripple = button.getElementsByClassName("ripple")[0];
+
+        if (ripple) {
+            ripple.remove();
+        }
+
+        button.appendChild(circle);
+    };
+
     render() {
         return (
-            <button style={styles.button} {...this.props} />
+            <button className="button" onClick={this.createRipple} {...this.props} />
         )
     }
 }
 
-export default Button
+export default Button;

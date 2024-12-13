@@ -1,38 +1,123 @@
 .App {
   text-align: center;
+  font-family: Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/* Carrusel Styles */
+.carrusel-container {
+  position: relative;
+  width: 100%;
+  height: 60vh; /* Ajusta según tus necesidades */
+  perspective: 1000px;
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.carrusel {
+  position: relative;
+  width: 100%;
+  height: 99%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.carrusel-item {
+  position: absolute;
+  width: 30vh;
+  height: 60vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  transition: transform 0.7s ease, opacity 0.7s ease;
+  opacity: 0;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: auto; /* Habilitar clics en las tarjetas */
+  z-index: 1; /* Asegurar que las tarjetas tengan un z-index bajo por defecto */
+}
+
+.carrusel-item .producto {
+  width: 80%; /* Ajusta el tamaño del contenido al 80% del contenedor */
+  height: 75%; /* Ajusta el tamaño del contenido al 80% del contenedor */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.carrusel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Esto asegura que la imagen mantenga su proporción */
+  border-radius: 10px; /* Opcional: para redondear las esquinas de las imágenes */
+}
+
+.carrusel-item.active {
+  transform: translate(-50%, -50%) scale(1.1);
+  opacity: 1;
+  pointer-events: auto; /* Habilitar clics en la tarjeta activa */
+  z-index: 10; /* Asegurar que la tarjeta activa esté en la parte superior */
+}
+
+.carrusel-item.left {
+  transform: translate(calc(-50% - 220px), -50%) rotateY(30deg) scale(1);
+  opacity: 0.8;
+  pointer-events: auto; /* Habilitar clics en la tarjeta izquierda */
+  z-index: 5;
+}
+
+.carrusel-item.right {
+  transform: translate(calc(-50% + 220px), -50%) rotateY(-30deg) scale(1);
+  opacity: 0.8;
+  pointer-events: auto; /* Habilitar clics en la tarjeta derecha */
+  z-index: 5;
+}
+
+.carrusel-item.hidden {
+  display: none;
+}
+
+.carrusel-buttons {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: auto; /* Para permitir clics solo en los botones */
+  z-index: 20;
+}
+
+.carrusel-button {
+  background-color: rgba(0, 0, 0, 0.4);
   color: white;
+  border: none;
+  padding: 5px 5px;
+  border-radius: 50px;
+  cursor: pointer;
+  pointer-events: auto; /* Habilitar clics en los botones */
 }
 
-.App-link {
-  color: #61dafb;
+.carrusel-button img {
+  width: 25px;
+  height: 25px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.carrusel-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

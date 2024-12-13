@@ -1,0 +1,50 @@
+.inventario {
+    padding: 20px;
+  }
+  
+  .inventario h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .inventario-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .inventario-table th, .inventario-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .inventario-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .inventario-table input {
+    width: 70px;
+    text-align: center;
+  }
+  
+  .inventario-table button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #359A2C;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .inventario-table button:hover {
+    background-color: #0e4e08;
+  }
+
+  .inventario-table .delete-button {
+    background-color: #ff0000;
+  }
+  
+  .inventario-table .delete-button:hover {
+    background-color: #cc0000;
+  }

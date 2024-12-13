@@ -1,0 +1,17 @@
+[33mcommit c9ede12590fc4084477a126403a369b0da181639[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Luis Enrique Guerrero <luisenguerrero@yahoo.com>
+Date:   Wed Oct 5 19:26:37 2022 -0500
+
+    Build site for deploy
+
+[33mcommit 9a0bd145a53686b3b9e046ae850de95a8e65065f[m
+Author: Luis Enrique Guerrero <luisenguerrero@yahoo.com>
+Date:   Wed Oct 5 17:29:51 2022 -0500
+
+    Primer Commit
+
+[33mcommit 34353c1eefe95db18eb9b30265710351f63fa03c[m
+Author: Luis Enrique Guerrero <luisenguerrero@yahoo.com>
+Date:   Wed Oct 5 11:25:51 2022 -0500
+
+    Initialize project using Create React App

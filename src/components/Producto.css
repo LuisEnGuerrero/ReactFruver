@@ -1,0 +1,203 @@
+/* AgregarProducto.css */
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.form-container h3 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-container input,
+.form-container textarea,
+.form-container button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-container textarea {
+  height: 80px;
+  resize: none;
+}
+
+.form-container button {
+  background-color: #0A253E;
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+  background-color: #0056b3;
+}
+
+.button {
+  background-color: #0A253E;
+  color: #FFFFFF;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  pointer-events: auto; /* Asegúrate de que los eventos de puntero estén habilitados */
+  transition: background-color 0.6s ease;
+  overflow: hidden; /* Asegúrate de que las ondas no se desborden del botón */
+  position: relative; /* Necesario para el posicionamiento absoluto de las ondas */
+  margin-top: 40%;
+  margin-bottom: -60%;
+}
+
+.button:hover {
+  background-color: #3d83dff5;
+  color: #fff;
+  border: 1px solid #151616;
+  border-radius: 4px;
+}
+
+.producto button .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.producto {
+  border: solid 1px #eee;
+  box-shadow: 0 5px 5px rgb(0, 0, 0, 0.1);
+  width: 30%;
+  padding: 10px 15px;
+  border-radius: 5px;
+  position: relative; /* Asegúrate de que el contenedor del botón esté posicionado correctamente */
+  margin: 10px; /* Añadir margen para separación entre productos */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}  
+
+.producto img {
+  margin-top: -60%;
+  width: 100%;
+  max-width: 100%; /* Asegúrate de que la imagen no sobrepase el tamaño de la tarjeta */
+  max-height: 50%; /* Asegúrate de que la imagen no sobrepase el tamaño de la tarjeta */
+  height: auto; /* Mantener la proporción de la imagen */
+  cursor: pointer; /* Cambiar el cursor cuando se pone el mouse sobre la imagen */
+  margin-bottom: 60px; /* Añadir margen inferior para separar la imagen del título */
+}  
+
+.producto h3 {
+  position: absolute;
+  top: 55%;
+  text-align: center;
+  margin: 5px;
+  font-size: 18px;
+  color: #333;
+}  
+
+.producto p {
+  position: absolute;
+  top: 65%;
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+}  
+
+.producto .agotado {
+  position: absolute;
+  top: -20;
+  left: 50;
+  width: 55%;
+  height: 110%;
+  background-color: rgba(255, 0, 0, 0.5);
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(-45deg);
+  transform-origin: center;
+  z-index: 2;
+}
+
+.producto .agotado-text {
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+  transform: rotate(90deg);
+  align-items: center;
+}
+
+.producto .button {
+  position: relative;
+  z-index: 1;
+}
+
+.producto .button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Media Queries para hacer los estilos responsivos */
+@media (max-width: 1200px) {
+  .producto {
+    width: 45%; /* Ajustar el ancho para pantallas medianas */
+  }
+}
+
+@media (max-width: 768px) {
+  .producto {
+    width: 100%; /* Ajustar el ancho para pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 10px; /* Reducir el padding para pantallas muy pequeñas */
+  }
+
+  .form-container h3 {
+    font-size: 20px; /* Reducir el tamaño de la fuente para pantallas muy pequeñas */
+  }
+
+  .form-container input,
+  .form-container textarea,
+  .form-container button {
+    font-size: 14px; /* Reducir el tamaño de la fuente para pantallas muy pequeñas */
+  }
+}

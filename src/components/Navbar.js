@@ -1,34 +1,36 @@
-import { Component } from 'react';
-import Logo from './Logo';
+import { Link, useLocation } from 'react-router-dom';
 import Carro from './Carro';
+import './Navbar.css'; // Importa el archivo CSS
 
-const styles = {
-    navbar: {
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        height: '100px',
-        justifyContent: 'space-between',
-        position: 'relative',
-        padding: '0 50px',
-        boxShadow: '0 2px 3px rgba(0, 0, 0, 0.1)',
-    }
-}
+function Navbar({ carro, esCarroVisible, mostrarCarro }) {
+  const location = useLocation();
 
-class Navbar extends Component {
-    render() {
-        const { carro, esCarroVisible, mostrarCarro } = this.props;
-        return (
-            <nav style={styles.navbar}>
-                <Logo />
-                <Carro 
-                    carro={carro} 
-                    esCarroVisible={esCarroVisible}
-                    mostrarCarro={mostrarCarro}
-                />
-            </nav>
-        )
-    }
+  return (
+    <nav className="navbar">
+      <div className="logoTitle">
+        <img src="/logo192.png" alt="Logo" className="logo" />
+        <h1 className="title">Mi Tienda</h1>
+      </div>
+      <div className="links">
+        {location.pathname !== '/' && (
+          <Link to="/" className="linkButton">
+            Productos
+          </Link>
+        )}
+        {location.pathname !== '/agregar-producto' && (
+        <Link to="/agregar-producto" className="linkButton">
+          Agregar Productos
+        </Link>
+        )}
+          {location.pathname !== '/inventario' && (
+          <Link to="/inventario" className="linkButton">
+            Agregar Stock
+          </Link>
+        )}
+      </div>
+      <Carro carro={carro} esCarroVisible={esCarroVisible} mostrarCarro={mostrarCarro} />
+    </nav>
+  );
 }
 
 export default Navbar;
